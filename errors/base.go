@@ -16,12 +16,13 @@ func (err *OriginalErrorBase) Error() string {
 
 // Common caused error types base.
 type CausedErrorBase struct {
-	OriginalErrorBase
+	Name    string  `json:"name"`
+	Message string  `json:"message"`
 	Cause   error   `json:"-"`
 }
 
 func (err *CausedErrorBase) Error() string {
-	str := err.OriginalErrorBase.Error()
+	str := err.Name + ": \"" + err.Message + "\""
 	if err.Cause != nil {
 		str += " Caused by: {" + err.Cause.Error() + "}"
 	}
