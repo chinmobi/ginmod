@@ -11,7 +11,7 @@ type ErrNotFound struct {
 }
 
 func NewNotFoundErrBy(entity, cond, value string) *ErrNotFound {
-	msg := entity + " by " + cond + ": [" + value + "]"
+	msg := entity + " by " + cond + ": |" + value + "|"
 	return NewNotFoundErr(msg)
 }
 
@@ -32,7 +32,7 @@ type ErrAlreadyExists struct {
 }
 
 func NewAlreadyExistsErrFor(entity, field, value string) *ErrAlreadyExists {
-	msg := entity + " for " + field + ": [" + value + "]"
+	msg := entity + " for " + field + ": |" + value + "|"
 	return NewAlreadyExistsErr(msg)
 }
 

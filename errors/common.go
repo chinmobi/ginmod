@@ -11,11 +11,19 @@ type ErrLackOfParameter struct {
 
 func newLackOfParameterErr(params []string) *ErrLackOfParameter {
 	var msg string
-	for i, cnt := 0, len(params); i < cnt; i++ {
+
+	cnt := len(params)
+	if cnt > 0 {
+		msg += "["
+	}
+	for i := 0; i < cnt; i++ {
 		if i > 0 {
 			msg += ", "
 		}
 		msg += params[i]
+	}
+	if cnt > 0 {
+		msg += "]"
 	}
 
 	err := &ErrLackOfParameter{
@@ -40,7 +48,7 @@ type ErrInvalidParameter struct {
 }
 
 func NewInvalidParameterErrOf(name, value string) *ErrInvalidParameter {
-	msg := name + ": [" + value + "]"
+	msg := name + ": |" + value + "|"
 	return NewInvalidParameterErr(name, value, msg)
 }
 
