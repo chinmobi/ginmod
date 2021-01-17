@@ -8,6 +8,7 @@ import (
 	"strings"
 )
 
+// ErrWrapErrors for wrap multiple errors
 type ErrWrapErrors struct {
 	errors []error
 }
@@ -18,15 +19,18 @@ func NewWrapErrorsErr() *ErrWrapErrors {
 	return err
 }
 
+// Wrap error
 func (w *ErrWrapErrors) Wrap(err ...error) *ErrWrapErrors {
 	w.errors = append(w.errors, err...)
 	return w
 }
 
+// Get the wrapped errors
 func (w *ErrWrapErrors) WrappedErrors() []error {
 	return w.errors
 }
 
+// Error interface method
 func (w *ErrWrapErrors) Error() string {
 	var str strings.Builder
 
@@ -46,6 +50,7 @@ func (w *ErrWrapErrors) Error() string {
 	return str.String()
 }
 
+// To error or nil (if no wrapped error)
 func (w *ErrWrapErrors) ToError() error {
 	if w.errors != nil {
 		return w

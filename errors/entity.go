@@ -5,7 +5,7 @@
 package errors
 
 
-// NewErrNotFound
+// ErrNotFound
 type ErrNotFound struct {
 	OriginalErrorBase
 }
