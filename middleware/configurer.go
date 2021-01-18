@@ -31,13 +31,13 @@ func (c *Configurer) getOrNewEntry(category string) *Entry {
 		}
 
 		if entry.next == nil {
-			entry = entry.newNext(category)
+			entry = entry.NewNext(category)
 			return entry
 		} else {
 			entry = entry.next
 		}
 	}
-	entry = newEntry(category)
+	entry = NewEntry(category)
 	c.entries = entry
 	return entry
 }

@@ -12,7 +12,7 @@ type Entry struct {
 }
 
 // Create entry
-func newEntry(category string) *Entry {
+func NewEntry(category string) *Entry {
 	e := &Entry{
 		category: category,
 	}
@@ -20,7 +20,7 @@ func newEntry(category string) *Entry {
 }
 
 // Create next entry
-func (e *Entry) newNext(category string) *Entry {
+func (e *Entry) NewNext(category string) *Entry {
 	n := &Entry{
 		category: category,
 	}
