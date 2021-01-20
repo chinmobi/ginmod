@@ -4,10 +4,13 @@ The common modules/packages used for Golang applications based on Gin.
 
 ## Packages
 
-* `errors` - Define the common errors and utility using for application.
+* `errors` - Define common errors and utility for application error handling.
+
 * `middleware` - Provide structures to organize/manage Gin middlewares.
-* `restful` - Define and pack the RESTful API response (data/error).
-* `security` - Provide security utility for authentication and authorization.
+
+* `restful` - Utility to pack `RESTful API` response (data and error).
+
+* `security` - Provide [security](security/README.md) utility for authentication and authorization.
 
 ## Authors
 
